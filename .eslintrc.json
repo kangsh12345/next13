@@ -16,6 +16,8 @@
     "ecmaVersion": 2020
   },
   "rules": {
+    "react/no-unescaped-entities": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-uses-react": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
