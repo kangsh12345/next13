@@ -1,3 +1,3 @@
 export default function Page() {
-  return <main className="">12</main>
+  return <main className="">home page</main>
 }
