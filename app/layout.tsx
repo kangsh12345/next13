@@ -1,6 +1,7 @@
 import Link from "next/link"
 import "./globals.css"
 import { Inter } from "next/font/google"
+import { Navigation } from "./ui/Navigation"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -38,13 +39,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <header>
           <div>
-            <ul className="flex bg-slate-500">
-              {links.map(({ href, key }) => (
-                <li className="flex-auto" key={key}>
-                  <Link href={href}>{key}</Link>
-                </li>
-              ))}
-            </ul>
+            <Navigation links={links} />
           </div>
         </header>
         {children}
