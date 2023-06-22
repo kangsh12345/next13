@@ -9,6 +9,7 @@ type NavigationProps = {
 
 export function Navigation({ links }: NavigationProps) {
   const pathname = usePathname()
+
   return (
     <ul className="flex bg-slate-500">
       {links.map(({ href, key }) => {
