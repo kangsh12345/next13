@@ -1,7 +1,13 @@
 import { getPosts } from "../lib/get-posts"
 
+const session = null
+
 export const Post = async () => {
   const posts = await getPosts()
+
+  if (session == null) {
+    throw new Error("no session provided")
+  }
 
   return (
     <div className="container mx-auto py-8">
