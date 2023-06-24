@@ -16,12 +16,20 @@ const links: Array<{ href: string; key: string }> = [
     key: "home",
   },
   {
+    href: "/post",
+    key: "post",
+  },
+  {
     href: "/dashboard",
     key: "dashboard",
   },
   {
     href: "/guides",
     key: "guides",
+  },
+  {
+    href: "/shop",
+    key: "shop",
   },
   {
     href: "/login",
