@@ -1,19 +1,27 @@
+import { headers } from "next/headers"
 // import { getPosts } from "../lib/get-posts"
 import { getPosts } from "../api/post/getPosts"
 
-const session = null
+// const session = null
+
+export const validate = 0
 
 export const Post = async () => {
+  const header = headers()
   const posts = await getPosts()
 
   // if (session == null) {
   //   throw new Error("no session provided")
   // }
-  console.log("posts: ", posts)
+  // console.log("posts: ", posts)
+  console.log("middleware request-time: ", header.get("request-time"))
 
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-3xl font-bold mb-6">Posts</h1>
+      <div>
+        this is not from data fetching: {new Date().getTime().toString()}
+      </div>
       {posts.map((post) => (
         <div key={post.id} className="bg-white p-4 rounded shadow mb-4">
           <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
@@ -26,6 +34,7 @@ export const Post = async () => {
               <div key={comment.id} className="mb-2">
                 <p className="text-gray-600 mb-1">{comment.author}</p>
                 <p>{comment.text}</p>
+                <div>{JSON.stringify(post.time)}</div>
               </div>
             ))}
           </div>

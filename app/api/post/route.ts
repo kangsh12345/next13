@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
 
+export const revalidate = 0
+
 export async function GET() {
   try {
     return new Promise((resolve) => {
@@ -23,6 +25,7 @@ const posts = [
       { id: 1, text: "Great post!", author: "Jane Smith" },
       { id: 2, text: "I totally agree.", author: "Mike Johnson" },
     ],
+    time: new Date().getTime(),
   },
   {
     id: 2,
@@ -34,6 +37,7 @@ const posts = [
       { id: 1, text: "Thanks for sharing!", author: "John Doe" },
       { id: 2, text: "Looking forward to more.", author: "Mike Johnson" },
     ],
+    time: new Date().getTime(),
   },
   {
     id: 3,
@@ -45,5 +49,6 @@ const posts = [
       { id: 1, text: "Amazing content!", author: "Jane Smith" },
       { id: 2, text: "Keep up the good work.", author: "John Doe" },
     ],
+    time: new Date().getTime(),
   },
 ]
