@@ -1,12 +1,15 @@
 import { headers } from "next/headers"
 // import { getPosts } from "../lib/get-posts"
 import { getPosts } from "../api/post/getPosts"
+import { Suspense } from "react"
+import { LoadingSkeleton } from "../ui/LoadingSkeleton"
+import { Post } from "./post"
 
 // const session = null
 
 export const validate = 0
 
-export const Post = async () => {
+export const PostPage = async () => {
   const header = headers()
   const posts = await getPosts()
 
@@ -22,7 +25,10 @@ export const Post = async () => {
       <div>
         this is not from data fetching: {new Date().getTime().toString()}
       </div>
-      {posts.map((post) => (
+      <Suspense fallback={<LoadingSkeleton />}>
+        <Post />
+      </Suspense>
+      {/* {posts.map((post) => (
         <div key={post.id} className="bg-white p-4 rounded shadow mb-4">
           <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
           <p className="text-gray-600 mb-2">
@@ -39,7 +45,7 @@ export const Post = async () => {
             ))}
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   )
 }

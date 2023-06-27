@@ -5,6 +5,7 @@ type Post = {
   author: string
   date: string
   comments: Array<{ id: number; text: string; author: string }>
+  time: number
 }
 
 export const getPosts = async (): Promise<Post[]> => {
@@ -21,6 +22,7 @@ export const getPosts = async (): Promise<Post[]> => {
             { id: 1, text: "Great post!", author: "Jane Smith" },
             { id: 2, text: "I totally agree.", author: "Mike Johnson" },
           ],
+          time: new Date().getTime(),
         },
         {
           id: 2,
@@ -32,6 +34,7 @@ export const getPosts = async (): Promise<Post[]> => {
             { id: 1, text: "Thanks for sharing!", author: "John Doe" },
             { id: 2, text: "Looking forward to more.", author: "Mike Johnson" },
           ],
+          time: new Date().getTime(),
         },
         {
           id: 3,
@@ -43,6 +46,7 @@ export const getPosts = async (): Promise<Post[]> => {
             { id: 1, text: "Amazing content!", author: "Jane Smith" },
             { id: 2, text: "Keep up the good work.", author: "John Doe" },
           ],
+          time: new Date().getTime(),
         },
         // Add more posts as needed
       ])
