@@ -1,4 +1,6 @@
-import Link from "next/link"
+// import { Registry as StyledJSXRegistry } from "./ui/styled-jsx/registry"
+// import { Registry as StyledComponentRegistry } from "./ui/styled-components/Registry"
+import { Registry as EmotionRootStyleRegistry } from "./ui/emotion/Registry"
 import "./globals.css"
 import { Inter } from "next/font/google"
 import { Navigation } from "./ui/Navigation"
@@ -45,12 +47,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header>
-          <div>
-            <Navigation links={links} />
-          </div>
-        </header>
-        {children}
+        <EmotionRootStyleRegistry>
+          <header>
+            <div>
+              <Navigation links={links} />
+            </div>
+          </header>
+          <main>{children}</main>
+          <footer className="bg-gray-200 py-4">
+            <div className="container mx-auto px-4">
+              <p className="text-center text-gray-600">
+                &copy; {new Date().getFullYear()} Shopping Mall. All rights
+                reserved.
+              </p>
+            </div>
+          </footer>
+        </EmotionRootStyleRegistry>
       </body>
     </html>
   )
